@@ -23,8 +23,8 @@ async function bootstrap() {
   app.use(compression());
   app.use(express.json({ limit: '6mb' }));
   const config = new DocumentBuilder()
-    .setTitle('API Agewell Documentation')
-    .setDescription('The documentation which used by agewell project')
+    .setTitle('API Multilingual Product Documentation')
+    .setDescription('The documentation which used by H-Lab Assesment')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
