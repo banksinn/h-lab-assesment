@@ -12,7 +12,7 @@ const UserProfile: React.FC<Props> = ({ userId }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(`https://banksinn.free.beeceptor.com/1`);
-        if (response.ok) {
+        if (!response.ok) {
           throw new Error("Failed to fetch user data");
         }
         const userData = await response.json();
