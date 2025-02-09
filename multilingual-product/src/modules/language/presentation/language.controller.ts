@@ -28,7 +28,7 @@ export class LanguageController {
 
   @Get()
   @HttpCode(HttpStatus.OK)
-  async getLanguageWithPagination(
+  async findWithPagination(
     @Query() pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<Language>> {
     return this.languageService.findWithPagination(pageOptionsDto);

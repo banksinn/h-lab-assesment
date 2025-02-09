@@ -30,7 +30,7 @@ export class LanguageService {
   ): Promise<PageDto<Language>> {
     const queryBuilder = this.languageRepository
       .createQueryBuilder('language')
-      .orderBy('language.createdAt', Order.ASC)
+      .orderBy('language."createdAt"', Order.ASC)
       .skip(pageOptionsDto.skip)
       .take(pageOptionsDto.take);
 

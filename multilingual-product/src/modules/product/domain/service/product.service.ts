@@ -30,7 +30,7 @@ export class ProductService {
   ): Promise<PageDto<Product>> {
     const queryBuilder = this.productRepository
       .createQueryBuilder('product')
-      .orderBy('product.createdAt', Order.ASC)
+      .orderBy('product."createdAt"', Order.ASC)
       .skip(pageOptionsDto.skip)
       .take(pageOptionsDto.take);
 
