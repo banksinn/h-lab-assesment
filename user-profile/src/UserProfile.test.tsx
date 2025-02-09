@@ -8,11 +8,11 @@ describe("UserProfile Component", () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   test("displays loading state initially", () => {
-    jest.fn().mockResolvedValue({
+    global.fetch = jest.fn().mockResolvedValue({
       ok: true,
       json: () => Promise.resolve({}),
     });
@@ -23,12 +23,16 @@ describe("UserProfile Component", () => {
   });
 
   test("displays error message when fetch fails", async () => {
-    jest.fn().mockRejectedValueOnce(new Error("Failed to fetch user data"));
+    global.fetch = jest
+      .fn()
+      .mockRejectedValue(new Error("Failed to fetch user data"));
 
     render(<UserProfile userId={1} />);
 
     await waitFor(() => {
-      expect(screen.getByText("Failed to fetch user data")).toBeInTheDocument();
+      expect(
+        screen.getByText("Error: Failed to fetch user data")
+      ).toBeInTheDocument();
     });
   });
 
@@ -39,10 +43,11 @@ describe("UserProfile Component", () => {
       email: "banksinn1@yopmail.com",
     };
 
-    jest.fn().mockResolvedValueOnce({
-      ok: true,
-      json: async () => mockUser,
-    });
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockUser),
+      })
+    ) as jest.Mock;
 
     render(<UserProfile userId={1} />);
 
