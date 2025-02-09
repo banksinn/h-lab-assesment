@@ -31,7 +31,7 @@
 
 1. useCallback คือ Hook ของ React ที่ใช้สำหรับป้องกันการเรียกใช้ซ้ำ เช่น ถ้าเรา Check ค่าจากตัวแปรนึงแล้วค่านั้นไม่เปลี่ยน ถ้าเราใช้ useCallback ครอบ Function ที่เราต้องการจะเรียกใช้ Function นั้นจะไม่ทำงาน กลับกันถ้าตัวแปรตัวนั้นเปลี่ยนค่า Function ตัวนั้นก็จะถูกเรียกใช้
 
-2.
+2. ผมได้ทำการสร้าง project user-profile และได้เขียน test UserProfile.test.tsx ขึ้นมาโดยใช้ jest หลักๆ คือผมจะใช้วิธีการ test ว่าตอนที่ fetch api แล้วยังไม่ได้ data จะต้อง show loading, ถ้ามี data แต่ Error ให้ show error และถ้าไม่ Error ให้ show data ที่ fetch api ได้
 
 ## Stay in touch
 
