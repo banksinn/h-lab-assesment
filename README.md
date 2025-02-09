@@ -7,7 +7,25 @@
 
 2. ถ้าสมมตมีการสร้าง Project ใหม่แล้ว Project Manager บอกให้ Test Performance สำหรับการ Release Project นี้ผมจะวางแผนการ Test โดยการใช้ Tools ที่ชื่อว่า k6 เพื่อทำการ Test Rest Api โดยผมจะทำการเขียน Scripts เพื่อที่จะรัน Test โดยผมจะทำการเทสทั้งหมด 4 เคสคือ Load Test คือ Test ปกติ, Stress Test คือ Test ที่เข้มข้นมากกว่าปกติ, Spike Test คือ Test ที่มีความเข้มข้นสูงในระยะเวลาสั้นๆ, Breakpoint Test คือ Test ด้วยความเข้มข้นสูงไปเรื่อยๆจนกว่าจะถึง Limit สูงสุด, Soak Test คือ Test ที่มีความเข้มข้นสูงที่ไปในระยะเวลายาวนาน
 
-3.
+3. ผมได้ทำการสร้าง project multilingual-product ขึ้นมาโดยมีการวางแผนไว้ว่า คือ
+
+- Design Database ออกแบบว่า Product เป็น Many to Many กับ Language โดยมี Table Mapping ชื่อ MultilingualProduct
+- ทำ CRUD ของ Product และ Langauge รวมกับ ทำ Unit Test
+- ทำ Api Create Multiligual Product และ Search Multilingual Product รวมกับทำ Unit Test
+
+### How To Run
+
+```
+1. Clone Project https://github.com/banksinn/h-lab-assesment.git
+2. cd multilingual-product
+3. copy .env.example แล้ว set ค่า ที่ผม xxxx ไว้เป็นของตัวเอง
+4. docker-compose up -d
+5. nvm use 20 (node ต้อง version 20 ขึ้นไป)
+6. yarn
+7. yarn start:dev
+8. connect database ตามที่เรา set ใน .env
+9. สามารถดู swagger ได้ที่ http://localhost:3000/documents
+```
 
 ## React Questions
 
