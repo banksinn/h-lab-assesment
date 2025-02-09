@@ -8,5 +8,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [TypeOrmModule.forFeature([Language])],
   controllers: [LanguageController],
   providers: [LanguageService],
+  exports: [LanguageService],
 })
 export class LanguageModule {}
